@@ -14,12 +14,12 @@ Description: "${description}"
 
 Respond ONLY in this exact JSON format, no extra text:
 {
-  "category": "one of: Pothole, Street light, Water leak, Garbage, Tree fall, Other",
-  "severity": "one of: Low, Medium, High, Critical",
-  "severityScore": "number from 1 to 5",
-  "department": "which government department should handle this",
-  "summary": "one sentence summary of the issue",
-  "urgent": true or false
+  "category": "Pothole" | "Street light" | "Water leak" | "Garbage" | "Tree fall" | "Other",
+  "severityScore": <integer 1-10>,
+  "department": "<responsible government department>",
+  "summary": "<one sentence, max 20 words>",
+  "urgent": <true if severityScore >= 7, else false>,
+  "confidence": "High" | "Medium" | "Low"
 }
 `;
 
