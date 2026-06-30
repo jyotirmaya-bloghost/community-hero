@@ -1,5 +1,5 @@
 const API_KEY = import.meta.env.VITE_GEMINI_API_KEY;
-const API_URL = `https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent?key=${API_KEY}`;
+const API_URL = `https://generativelanguage.googleapis.com/v1beta/models/gemini-3.5-flash:generateContent?key=${API_KEY}`;
 
 export async function analyzeIssue(imageBase64, description) {
   // Strip the "data:image/jpeg;base64," prefix
@@ -44,6 +44,8 @@ Respond ONLY in this exact JSON format, no extra text:
   });
 
   const data = await response.json();
+  console.log("RAW GEMINI RESPONSE:", data); // ← add this
+
   const text = data.candidates[0].content.parts[0].text;
 
   // Clean and parse JSON
